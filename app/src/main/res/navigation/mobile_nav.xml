@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_nav"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.finals.agrifund.Home"
+        android:label="@string/app_home"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/navigation_add"
+        android:name="com.finals.agrifund.Add"
+        android:label="@string/app_add"
+        tools:layout="@layout/fragment_add"/>
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.finals.agrifund.Profile"
+        android:label="@string/app_profile"
+        tools:layout="@layout/fragment_profile"/>
+
+
+
+</navigation>
