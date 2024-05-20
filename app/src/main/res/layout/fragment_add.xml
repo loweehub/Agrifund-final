@@ -4,13 +4,118 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Add"
+    android:orientation="vertical"
     android:background="@drawable/bg">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp">
 
-    <TextView android:layout_width="match_parent"
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="1"
+                  android:textSize="20dp"
+                 android:textAlignment="center"
+                  android:textColor="@color/black"
+                  android:textStyle="bold"
+                  android:background="@drawable/page_indicator"
+                  android:layout_weight="2"/>
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="FRAGMENT ADD"
-              android:textSize="50dp"
-              android:layout_gravity="center_horizontal"/>
+        android:text="Tell us about your Fundraiser"
+        android:layout_gravity="center"
+        android:textColor="#4CAF50"
+        android:layout_marginTop="40dp"/>
+
+        <LinearLayout android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shape_login_panel">
+
+            <TextView android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="How much do you want to raise?*"
+                      android:layout_margin="10dp"
+                    android:layout_marginRight="30dp"/>
+            <EditText android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/add_target_amt"
+                android:hint=" Should be minimum ₱50,000"
+                android:background="@drawable/textborder"
+                android:layout_marginLeft="30dp"
+                android:textStyle="italic"
+                android:inputType="number"
+                android:layout_marginRight="30dp"/>
+
+            <EditText android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/add_title"
+                android:hint=" Campaign title *"
+                android:background="@drawable/textborder"
+                android:layout_marginLeft="30dp"
+                android:textStyle="italic"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="25dp" />
+
+            <EditText android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/add_Business_Location"
+                android:hint=" Business Location *"
+                android:background="@drawable/textborder"
+                android:layout_marginLeft="30dp"
+                android:textStyle="italic"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="25dp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="30dp"
+                android:textStyle="italic"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/textborder"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/add_type"
+                    android:hint="type"
+                    android:layout_margin="5dp"
+                    android:textStyle="italic"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/page1"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_margin="15dp"
+                android:background="@drawable/btns"
+                android:text="Next"/>
+
+        </LinearLayout>
+
+
 
 </LinearLayout>

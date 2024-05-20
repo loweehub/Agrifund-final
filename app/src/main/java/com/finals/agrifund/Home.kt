@@ -48,6 +48,7 @@ class Home : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false)
+
     }
 
     companion object {
@@ -73,7 +74,7 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dataInitialize()
-      val layoutManager =LinearLayoutManager(context)
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerView = view.findViewById(R.id.homeList)
         recyclerView.layoutManager = layoutManager
         recyclerView.setHasFixedSize(true)
@@ -82,7 +83,7 @@ class Home : Fragment() {
     }
 
     private fun dataInitialize(){
-       homeArrayList = arrayListOf<Campaigns>()
+        homeArrayList = arrayListOf<Campaigns>()
         overImage = arrayOf(
             R.drawable.applg,
             R.drawable.applg,
@@ -98,8 +99,7 @@ class Home : Fragment() {
             "Title example num3",
             "Title example num4",
             "Title example num5",
-            "Title example num6",
-
+            "Title example num6"
         )
 
         overRaised = arrayOf(
@@ -109,13 +109,13 @@ class Home : Fragment() {
             4000,
             3000,
             10000
-
         )
         for(i in overImage.indices){
             val camps  = Campaigns(overImage[i], overTitle[i], overRaised[i])
             homeArrayList.add(camps)
         }
     }
+
 
 
 }

@@ -33,8 +33,14 @@ RecyclerView.Adapter<ListAdapter.CampaignsViewHolder>()
         holder.title.text = ovCamp.Raised.toString()
     }
 
+     private val limit = 3
     override fun getItemCount(): Int {
-       return homeList.size
+        return if (homeList.size > limit) {
+            limit
+        } else {
+            homeList.size
+        }
     }
+
 
 }

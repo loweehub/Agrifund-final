@@ -12,17 +12,29 @@
         android:orientation="vertical">
         <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:layout_margin="5dp">
+
+            <ImageView android:layout_width="50dp"
+                       android:layout_height="50dp"
+                       android:layout_weight="1"
+                android:src="@drawable/logo"/>
             <EditText android:layout_width="250dp"
                 android:layout_height="50dp"
                 android:id="@+id/Search"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/searchbar"
                 android:hint="Search"
                 android:padding="10dp"
+                android:layout_weight="1"
                 android:textAlignment="center"
                 />
+            <ImageView android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/profile_holder"
+                android:layout_weight="1"
+                android:src="@drawable/profile_holder"/>
 
 
         </LinearLayout>
@@ -35,7 +47,7 @@
             <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Overview of campaigns"
-                android:textSize="22dp"
+                android:textSize="18dp"
                 android:textColor="@color/black"
                 android:layout_margin="15dp"
                 android:textStyle="bold"/>
@@ -43,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/Seeall"
                 android:text="See all"
-                android:textSize="20dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="40dp"
                 android:padding="10dp"
