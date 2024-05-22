@@ -12,13 +12,12 @@ RecyclerView.Adapter<ListAdapter.CampaignsViewHolder>()
 {
 
 
-
-
    class CampaignsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
        val img :ImageView = itemView.findViewById(R.id.DashCamImg)
        val title :TextView = itemView.findViewById(R.id.DashTitle)
-       val raised : TextView = itemView.findViewById(R.id.DashRaised)
+
    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CampaignsViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.homecamplist, parent, false)
@@ -30,10 +29,10 @@ RecyclerView.Adapter<ListAdapter.CampaignsViewHolder>()
         val ovCamp = homeList[position]
         holder.img.setImageResource(ovCamp.image)
         holder.title.text = ovCamp.title
-        holder.title.text = ovCamp.Raised.toString()
+
     }
 
-     private val limit = 3
+     private val limit = 4
     override fun getItemCount(): Int {
         return if (homeList.size > limit) {
             limit

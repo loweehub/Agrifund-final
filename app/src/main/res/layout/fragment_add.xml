@@ -34,16 +34,17 @@
 
     </LinearLayout>
 
+
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
         android:text="Tell us about your Fundraiser"
         android:layout_gravity="center"
         android:textColor="#4CAF50"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="15dp"/>
 
         <LinearLayout android:orientation="vertical"
         android:layout_width="300dp"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
@@ -54,43 +55,45 @@
                       android:layout_height="wrap_content"
                       android:text="How much do you want to raise?*"
                       android:layout_margin="10dp"
-                    android:layout_marginRight="30dp"/>
+                     android:layout_marginRight="30dp"
+                     />
             <EditText android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:id="@+id/add_target_amt"
-                android:hint=" Should be minimum ₱50,000"
+                android:hint="    Should be minimum ₱5,000"
                 android:background="@drawable/textborder"
                 android:layout_marginLeft="30dp"
                 android:textStyle="italic"
                 android:inputType="number"
-                android:layout_marginRight="30dp"/>
+                android:layout_marginRight="30dp"
+                android:id="@+id/add_amt"
+                />
 
             <EditText android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/add_title"
-                android:hint=" Campaign title *"
+                android:hint="    Campaign title *"
                 android:background="@drawable/textborder"
                 android:layout_marginLeft="30dp"
                 android:textStyle="italic"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="25dp" />
+                android:layout_marginTop="10dp" />
 
             <EditText android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:id="@+id/add_Business_Location"
-                android:hint=" Business Location *"
+                android:hint="    Business Location *"
                 android:background="@drawable/textborder"
                 android:layout_marginLeft="30dp"
                 android:textStyle="italic"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="25dp" />
+                android:layout_marginTop="10dp" />
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginLeft="30dp"
                 android:textStyle="italic"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/textborder"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
                 <AutoCompleteTextView
@@ -105,6 +108,40 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <EditText android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:id="@+id/add_description"
+                android:hint="    Campaign title *"
+                android:background="@drawable/textborder"
+                android:layout_marginLeft="30dp"
+                android:textStyle="italic"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp">
+
+                <ImageView android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:id="@+id/add_image"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="25dp"
+                    android:clickable="true"
+                    android:src="@drawable/image_holder"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/welcome_msg"
+                    android:text="Upload image here!"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="italic"/>
+
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/page1"
                 android:layout_width="150dp"
@@ -115,7 +152,5 @@
                 android:text="Next"/>
 
         </LinearLayout>
-
-
 
 </LinearLayout>
