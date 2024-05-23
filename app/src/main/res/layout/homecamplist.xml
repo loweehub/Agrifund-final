@@ -7,18 +7,22 @@
 
         <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_margin="15dp">
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:id="@+id/cardlist"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
 
                 >
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:background="#cefad0">
 
                     <ImageView
                         android:id="@+id/DashCamImg"
@@ -32,31 +36,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
-                        android:text="This is example for dashboard list"
+                        android:text="Farming is a profesion of hope"
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:layout_gravity="center_horizontal"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="italic" />
 
-                    <TextView
-                        android:id="@+id/DashRaised"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="0.00"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="24dp"
-                        android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/DonateBtnDash"
-                        android:layout_width="150dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="end"
-                        android:layout_margin="15dp"
-                        android:background="@drawable/btns"
-                        android:text="Donate" />
 
 
                 </LinearLayout>

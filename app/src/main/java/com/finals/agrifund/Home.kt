@@ -32,7 +32,7 @@ class Home : Fragment() {
 
     lateinit var overImage: Array<Int>
     lateinit var overTitle: Array<String>
-    lateinit var overRaised: Array<Long>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,33 +85,24 @@ class Home : Fragment() {
     private fun dataInitialize(){
         homeArrayList = arrayListOf<Campaigns>()
         overImage = arrayOf(
-            R.drawable.applg,
-            R.drawable.applg,
-            R.drawable.applg,
-            R.drawable.applg,
-            R.drawable.applg,
-            R.drawable.applg
+            R.drawable.dash1,
+            R.drawable.dash2,
+            R.drawable.dash3
+
         )
 
         overTitle = arrayOf(
-            "Title example num1",
-            "Title example num2",
-            "Title example num3",
-            "Title example num4",
-            "Title example num5",
-            "Title example num6"
+            "Farming is a profesion of hope",
+            "Trees are poems that the earth writes" +
+                    "    upon the sky",
+            "Fisheries and aquaculture are vital " +
+                    "   for food and livelihoods."
+
         )
 
-        overRaised = arrayOf(
-            5000,
-            6000,
-            7000,
-            4000,
-            3000,
-            10000
-        )
+
         for(i in overImage.indices){
-            val camps  = Campaigns(overImage[i], overTitle[i], overRaised[i])
+            val camps  = Campaigns(overImage[i], overTitle[i])
             homeArrayList.add(camps)
         }
     }

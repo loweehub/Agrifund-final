@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="@drawable/bg"
+    android:background="#abf7b1"
     tools:context=".Home">
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,52 +13,78 @@
         <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="5dp">
+            android:background="#355E3B">
 
             <ImageView android:layout_width="50dp"
-                       android:layout_height="50dp"
-                       android:layout_weight="1"
-                android:src="@drawable/logo"/>
-            <EditText android:layout_width="250dp"
-                android:layout_height="50dp"
-                android:id="@+id/Search"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="5dp"
-                android:background="@drawable/searchbar"
-                android:hint="Search"
-                android:padding="10dp"
+                       android:layout_height="75dp"
+                       android:src="@drawable/logo"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textSize="22dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif"
                 android:textAlignment="center"
-                />
+                android:layout_gravity="center"/>
+
             <ImageView android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:layout_margin="10dp"
                 android:id="@+id/profile_holder"
-                android:layout_weight="1"
-                android:src="@drawable/profile_holder"/>
+                android:src="@drawable/profile_holder"
+                android:background="@drawable/profile_holder"/>
 
 
         </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/welcome_msg"
+            android:text="Welcome!"
+            android:layout_marginLeft="15dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/total_balance"
+            android:text="0.00"
+            android:textSize="25dp"
+            android:layout_marginLeft="15dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total return of investment"
+            android:layout_marginLeft="15dp"
+            />
+
+
+    </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
 
             <TextView android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Overview of campaigns"
-                android:textSize="18dp"
+                android:text="Items worth considering for investment."
+                android:textSize="15dp"
                 android:textColor="@color/black"
-                android:layout_margin="15dp"
-                android:textStyle="bold"/>
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/Seeall"
-                android:text="See all"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="40dp"
-                android:padding="10dp"
-                android:textStyle="italic"/>
+                android:textStyle="bold"
+                android:fontFamily="sans-serif"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center_horizontal"/>
         </LinearLayout>
 
 
@@ -71,5 +97,8 @@
 
 
     </LinearLayout>
+
+
+
 
 </FrameLayout>
