@@ -2,20 +2,32 @@ package com.finals.agrifund.user
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.finals.agrifund.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
+
+        // Initialize Firebase Auth and Firestore
+        auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         // Handle window insets for edge-to-edge UI
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -90,11 +102,65 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // If all validations pass, navigate back to login
-            Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish() // Finish this activity so user can't navigate back to it
+            // Register the user in Firebase
+            auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Registration successful, save additional user details to Firestore
+                        val user = auth.currentUser
+                        Log.d("RegisterActivity", "User registered successfully: ${user?.uid}")
+                        saveUserDetailsToFirestore(user, fullName, phoneNo)
+                    } else {
+                        // If registration fails, display a message to the user
+                        Toast.makeText(this, "Registration failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                        Log.e("RegisterActivity", "Registration failed: ${task.exception?.message}")
+                    }
+                }
         }
+    }
+
+    private fun saveUserDetailsToFirestore(user: FirebaseUser?, fullName: String, phoneNo: String) {
+        user?.let {
+            val userDetails = hashMapOf(
+                "uid" to user.uid,
+                "fullName" to fullName,
+                "phoneNo" to phoneNo,
+                "email" to user.email
+            )
+
+            firestore.collection("users").document(user.uid)
+                .set(userDetails)
+                .addOnSuccessListener {
+                    Log.d("RegisterActivity", "User details saved successfully")
+                    runOnUiThread {
+                        showSuccessDialog()
+                    }
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Failed to save user details: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Log.e("RegisterActivity", "Failed to save user details: ${e.message}")
+                }
+        }
+    }
+
+    private fun showSuccessDialog() {
+        Log.d("RegisterActivity", "Showing success dialog")
+        runOnUiThread {
+            AlertDialog.Builder(this)
+                .setTitle("Account Created")
+                .setMessage("Your account has been successfully created.")
+                .setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+                    navigateToLogin()
+                }
+                .show()
+        }
+    }
+
+    private fun navigateToLogin() {
+        Log.d("RegisterActivity", "Navigating to login")
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish() // Finish this activity so user can't navigate back to it
     }
 }
