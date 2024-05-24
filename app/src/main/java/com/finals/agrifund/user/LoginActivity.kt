@@ -1,46 +1,3 @@
-//package com.finals.agrifund.user
-//
-//import android.content.Intent
-//import android.os.Bundle
-//import android.widget.Button
-//import android.widget.TextView
-//import androidx.activity.enableEdgeToEdge
-//import androidx.appcompat.app.AppCompatActivity
-//import androidx.core.view.ViewCompat
-//import androidx.core.view.WindowInsetsCompat
-//import com.finals.agrifund.MainActivity
-//import com.finals.agrifund.R
-//
-//class LoginActivity : AppCompatActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
-//        setContentView(R.layout.activity_login)
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-//            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-//            insets
-//        }
-//
-//        // Find the buttons
-//        val signupTextView: TextView = findViewById(R.id.signup)
-//        val loginButton: Button = findViewById(R.id.button)
-//
-//        // Set click listener for Signup TextView
-//        signupTextView.setOnClickListener {
-//            val intent = Intent(this, RegisterActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        // Set click listener for Login Button
-//        loginButton.setOnClickListener {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            // Optionally, finish this activity so the user can't go back to the login screen
-//            finish()
-//        }
-//    }
-//}
 package com.finals.agrifund.user
 
 import android.content.Intent
@@ -48,15 +5,16 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+
 import com.finals.agrifund.MainActivity
 import com.finals.agrifund.R
+
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -69,6 +27,7 @@ import com.google.firebase.auth.FirebaseUser
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,9 +42,10 @@ class LoginActivity : AppCompatActivity() {
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
 
+
         // Configure Google Sign-In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.your_web_client_id))
+            .requestIdToken(getString(R.string.your_web_client_id)) // Replace with your actual client ID
             .requestEmail()
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
@@ -95,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         val loginButton: Button = findViewById(R.id.button)
         val emailEditText: EditText = findViewById(R.id.userEditText)
         val passwordEditText: EditText = findViewById(R.id.passwordEditText)
-        val googleSignInButton: LinearLayout = findViewById(R.id.googleSignInButton)
+        val googleSignInButton: Button = findViewById(R.id.googleSignInButton)
 
         // Set click listener for Signup TextView
         signupTextView.setOnClickListener {
@@ -146,8 +106,12 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signInWithGoogle() {
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        // Sign out of any existing Google account
+        googleSignInClient.signOut().addOnCompleteListener {
+            // Start the Google Sign-In intent
+            val signInIntent = googleSignInClient.signInIntent
+            startActivityForResult(signInIntent, RC_SIGN_IN)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -185,14 +149,20 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java).apply {
+                putExtra("USER_NAME", user.displayName)
+                putExtra("USER_EMAIL", user.email)
+                putExtra("USER_PHOTO", user.photoUrl?.toString())
+            }
             startActivity(intent)
             finish()
         }
     }
+
 
     companion object {
         private const val RC_SIGN_IN = 9001
         private const val TAG = "LoginActivity"
     }
 }
+

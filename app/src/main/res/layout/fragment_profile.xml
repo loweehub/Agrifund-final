@@ -20,11 +20,7 @@
             android:padding="6dp">
 
             <!-- Logo -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="57dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/logo_only" />
+
         </RelativeLayout>
 
         <LinearLayout
@@ -48,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 app:cardCornerRadius="15dp"
-                app:cardBackgroundColor="@android:color/white"
+                app:cardBackgroundColor="#abf7b1"
                 app:cardElevation="10dp"
                 app:strokeColor="#CCCCCC"
                 app:strokeWidth="5dp">
@@ -57,6 +53,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:elevation="50dp"
+
                     android:orientation="horizontal">
 
                     <com.google.android.material.card.MaterialCardView
@@ -73,7 +70,7 @@
                         app:strokeWidth="4dp">
 
                         <com.google.android.material.imageview.ShapeableImageView
-                            android:id="@+id/profileSetting"
+                            android:id="@+id/profile_picture"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="fitCenter"
@@ -88,17 +85,17 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/profileName"
+                            android:id="@+id/profile_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="18sp"
-                            android:text="User"
+                            android:text="Name"
                             android:textColor="@color/black"
                             android:gravity="center_vertical"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/profileEmail"
+                            android:id="@+id/profile_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="email@test.com"
@@ -112,7 +109,7 @@
                 android:layout_height="match_parent"
                 android:padding="13dp"
                 android:layout_margin="15dp"
-                android:background="@color/white">
+               android:background="@color/white">
 
                 <TextView
                     android:id="@+id/generalTextview"
@@ -131,7 +128,7 @@
                     android:layout_marginBottom="15dp"
                     android:layout_marginRight="15dp"
                     app:cardCornerRadius="15dp"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="#abf7b1"
                     android:layout_below="@id/generalTextview"
                     app:cardElevation="10dp"
                     app:strokeColor="#CCCCCC"
@@ -175,12 +172,12 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/informationBtn"
+                    android:id="@+id/notifButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     app:cardCornerRadius="15dp"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="#abf7b1"
                     app:cardElevation="10dp"
                     app:strokeColor="#CCCCCC"
                     android:layout_below="@id/editProfileBtn"
@@ -229,10 +226,10 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="15dp"
                     app:cardCornerRadius="15dp"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="#abf7b1"
                     app:cardElevation="10dp"
                     app:strokeColor="#CCCCCC"
-                    android:layout_below="@id/informationBtn"
+                    android:layout_below="@id/notifButton"
                     app:strokeWidth="5dp">
 
                     <LinearLayout
@@ -278,7 +275,7 @@
                 android:layout_height="match_parent"
                 android:padding="13dp"
                 android:layout_margin="15dp"
-                android:background="@drawable/profileshadow">
+                android:background="@color/white">
 
                 <TextView
                     android:id="@+id/settingTextview"
@@ -298,7 +295,7 @@
                     android:layout_marginBottom="15dp"
                     android:layout_marginRight="15dp"
                     app:cardCornerRadius="15dp"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="#abf7b1"
                     app:cardElevation="10dp"
                     app:strokeColor="#CCCCCC"
                     app:strokeWidth="5dp">

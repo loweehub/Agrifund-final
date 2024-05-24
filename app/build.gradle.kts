@@ -47,10 +47,15 @@ dependencies {
     implementation(libs.google.firebase.auth)
     implementation(libs.firebase.database)
 
+    // Glide library
+    implementation("com.github.bumptech.glide:glide:4.14.2")
+    implementation("com.github.bumptech.glide:glide:4.13.2")
+
     // Google Play services dependencies
     implementation(libs.play.services.auth)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore.ktx)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -68,5 +73,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
 }

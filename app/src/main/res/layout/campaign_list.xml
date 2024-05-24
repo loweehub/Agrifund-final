@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -126,14 +127,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:layout_marginTop="20dp">
+
                     <Button
+                        android:id="@+id/like"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:id="@+id/like"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/like"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="20dp"
-                        />
+                        android:background="@drawable/like"
+                        tools:ignore="SpeakableTextPresentCheck" />
                     <TextView
                         android:id="@+id/like_count"
                         android:layout_width="30dp"
@@ -142,13 +144,13 @@
                         android:layout_marginLeft="10dp"/>
 
                     <Button
+                        android:id="@+id/heart"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:id="@+id/heart"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/heart"
+                        android:layout_marginStart="10dp"
                         android:layout_marginBottom="20dp"
-                        />
+                        android:background="@drawable/heart"
+                        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
                     <TextView
                         android:id="@+id/heart_count"
                         android:layout_width="30dp"
@@ -162,7 +164,7 @@
                         android:layout_height="50dp"
                         android:layout_gravity="end"
                         android:layout_marginBottom="10dp"
-                        android:layout_marginLeft="50dp"
+                        android:layout_marginStart="50dp"
                         android:background="@drawable/btns"
                         android:text="Next"/>
 

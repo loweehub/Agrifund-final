@@ -12,13 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="5dp"
+        android:layout_marginTop="90dp"
         android:gravity="center_horizontal">
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
-            android:layout_height="600dp"
+            android:layout_height="550dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="40dp"
 
