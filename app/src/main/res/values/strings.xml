@@ -16,5 +16,6 @@
     <string name="app_home">Home</string>
     <string name="app_add">Add</string>
     <string name="app_profile">Profile</string>
+    <string name="app_dashboard">Dashboard</string>
 
 </resources>
