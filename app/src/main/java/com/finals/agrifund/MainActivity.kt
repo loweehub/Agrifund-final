@@ -17,5 +17,17 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.host_main_fragment)
         binding.bottomNavBar.setupWithNavController(navController)
+        val userName = intent.getStringExtra("USER_NAME")
+        val userEmail = intent.getStringExtra("USER_EMAIL")
+        val userPhoto = intent.getStringExtra("USER_PHOTO")
+
+        val profileFragment = Profile().apply {
+            arguments = Bundle().apply {
+                putString("USER_NAME", userName)
+                putString("USER_EMAIL", userEmail)
+                putString("USER_PHOTO", userPhoto)
+
+            }
+        }
     }
 }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "154616522449",
+    "project_id": "intprog-agrifund",
+    "storage_bucket": "intprog-agrifund.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154616522449:android:b463947e06963fe91e07f0",
+        "android_client_info": {
+          "package_name": "com.finals.agrifund"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaNjg3bBlMSyHdkWK1R79TsmhwK4bddL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

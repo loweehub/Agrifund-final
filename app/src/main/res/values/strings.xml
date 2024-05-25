@@ -11,11 +11,12 @@
     <string name="login_failed">"Login failed"</string>
     <string name="or">-------------------------------OR-------------------------------</string>
     <string name="hi_there_lets_get_started">Hi there, lets get started</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_home">Home</string>
     <string name="app_add">Add</string>
     <string name="app_profile">Profile</string>
-    <string name="app_dashboard">Dashboard</string>
 
+    <string name="app_dashboard">Dashboard</string>
+    <string name="your_web_client_id">154616522449-gl29mf6fufok6ngo49ipteklcauba1e5.apps.googleusercontent.com</string>
 </resources>
+
