@@ -47,5 +47,16 @@ class Campaign_Dashboard : Fragment() {
 
         //add another Button
 
+        val invest = view.findViewById<Button>(R.id.invest_but)
+
+        invest.setOnClickListener {
+
+            
+        }
+
+
+
+
+
     }
 }
