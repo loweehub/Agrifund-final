@@ -53,6 +53,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -85,9 +86,10 @@ class Campaign_Dashboard : Fragment() {
                 val campaignList = mutableListOf<Data_campaigns>()
 
                 for (document in documents) {
-                    val imageUri = document.get("data_uri") as? Uri ?: Uri.EMPTY
+                    val imageUrl = document.getString("data_img") ?: ""
+                    val imageUri = if (imageUrl.isNotEmpty()) Uri.parse(imageUrl) else Uri.EMPTY
                     val title = document.getString("data_title") ?: ""
-                    val amount = document.getString("data_amnt") ?: ""
+                    val amount = document.getString("data_amt") ?: ""
                     val location = document.getString("data_location") ?: ""
                     val type = document.getString("data_type") ?: ""
                     val description = document.getString("data_description") ?: ""
@@ -99,26 +101,13 @@ class Campaign_Dashboard : Fragment() {
                 }
 
 
-        //add another Button
-
-        val invest = view.findViewById<Button>(R.id.invest_but)
-
-        invest.setOnClickListener {
-
-            
-        }
-
-
-
-
-
-
                 val adapter = CampaignAdapter(campaignList)
                 campaignRecyclerView.adapter = adapter
             }
             .addOnFailureListener { exception ->
                 // Handle errors
             }
+
 
     }
 }

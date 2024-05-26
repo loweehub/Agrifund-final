@@ -43,27 +43,22 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-<<<<<<< HEAD
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/campaignlist"
             android:layout_marginBottom="15dp"
           />
 
-        <Button
-            android:id="@+id/invest_but"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="50dp"
-            android:background="@drawable/btns"
-            android:text="Next"/>
-=======
-            android:id="@+id/campaignlist"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
->>>>>>> 02ba15c4d55c2ce590b7109803b36389c266dbed
+<!--        <Button-->
+<!--            android:id="@+id/invest_but"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="35dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginStart="50dp"-->
+<!--            android:background="@drawable/btns"-->
+<!--            android:text="Next"/>-->
+
     </LinearLayout>
 
 </FrameLayout>
