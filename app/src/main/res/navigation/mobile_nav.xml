@@ -10,15 +10,20 @@
         android:name="com.finals.agrifund.Home"
         android:label="@string/app_home"
         tools:layout="@layout/fragment_home"/>
-
     <fragment
         android:id="@+id/navigation_add"
         android:name="com.finals.agrifund.Add"
         android:label="@string/app_add"
         tools:layout="@layout/fragment_add"/>
     <fragment
+        android:id="@+id/navigation_campaigns"
+        android:name="com.finals.agrifund.Campaign_Dashboard"
+        android:label="Campaign"
+        tools:layout="@layout/fragment_campaign_dashboard"/>
+    <fragment
         android:id="@+id/navigation_profile"
         android:name="com.finals.agrifund.Profile"
         android:label="@string/app_profile"
         tools:layout="@layout/fragment_profile"/>
+
 </navigation>

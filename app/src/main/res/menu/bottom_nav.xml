@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item android:title="Home"
         android:id="@+id/navigation_home"
         android:icon="@drawable/baseline_home_24"/>
     <item android:title="Add"
         android:id="@+id/navigation_add"
         android:icon="@drawable/add"/>
+    <item android:title="Campaigns"
+        android:id="@+id/navigation_campaigns"
+        android:icon="@drawable/campaignicon"/>
     <item android:title="Profile"
         android:id="@+id/navigation_profile"
         android:icon="@drawable/profileicon"/>
+
 </menu>

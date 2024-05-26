@@ -4,10 +4,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@drawable/bg"
+    android:background="#F5FEFD"
     tools:context=".Profile">
-    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#355E3B">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +27,7 @@
             android:layout_margin="10dp"
             android:padding="6dp">
 
-            <!-- Logo -->
+
 
         </RelativeLayout>
 
@@ -314,6 +322,36 @@
 
             </RelativeLayout>
 
+            <ImageView android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/logo"/>
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dashboard"
+                android:textSize="22dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:shadowColor="#FF000000"
+                android:shadowDx="2"
+                android:shadowDy="5"
+                android:shadowRadius="10"
+                />
+
+            <ImageView android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="10dp"
+                android:id="@+id/profile_holder"
+                android:src="@drawable/profile_holder"
+                android:background="@drawable/profile_holder"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
         </LinearLayout>

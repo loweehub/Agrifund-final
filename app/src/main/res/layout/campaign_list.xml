@@ -93,30 +93,10 @@
                           android:textStyle="bold"
                           android:layout_marginLeft="10dp"/>
                       <TextView
-                          android:id="@+id/display_lastname"
+                          android:id="@+id/display_fullname"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:text="Lastname: "
-                          android:layout_marginLeft="10dp"/>
-                      <TextView
-                          android:id="@+id/display_firstname"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Firstname: "
-                          android:layout_marginLeft="10dp"/>
-
-                      <TextView
-                          android:id="@+id/display_occupation"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Occupation: "
-                          android:layout_marginLeft="10dp"/>
-
-                      <TextView
-                          android:id="@+id/display_address"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Address: "
+                          android:text="Fullname: "
                           android:layout_marginLeft="10dp"/>
 
                   </LinearLayout>
@@ -159,16 +139,15 @@
                         android:layout_marginLeft="10dp"/>
 
                     <Button
-                        android:id="@+id/page1"
-                        android:layout_width="150dp"
-                        android:layout_height="50dp"
+                        android:id="@+id/Add_camp"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
                         android:layout_gravity="end"
                         android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="20dp"
                         android:layout_marginStart="50dp"
                         android:background="@drawable/btns"
                         android:text="Next"/>
-
-
                 </LinearLayout>
 
 

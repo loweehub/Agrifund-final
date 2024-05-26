@@ -7,7 +7,11 @@
     <color name="kelly">#4CBB17</color>
     <color name="light">#90EE90</color>
 
+    <!-- Light Theme Colors -->
+    <color name="light_primary">#FFFFFF</color> <!-- Example: White -->
 
+    <!-- Dark Theme Colors -->
+    <color name="dark_primary">#000000</color> <!-- Example: Black -->
     <color name="blue">#459DE4</color>
     <color name="red">#FF0000</color>
 

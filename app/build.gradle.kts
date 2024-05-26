@@ -41,6 +41,9 @@ android {
 
 dependencies {
 
+
+    //implementation (androidx.core:core-ktx:1.3.2)
+
     // Firebase BOM and Firebase dependencies
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
@@ -60,6 +63,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.8.9")
 
 
+//>>>>>>> f3f7377c4eda4433cd7c5b98b8fb3bf03afe85f3
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
