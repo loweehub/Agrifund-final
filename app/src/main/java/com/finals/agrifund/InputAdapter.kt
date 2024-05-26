@@ -30,7 +30,7 @@ RecyclerView.Adapter<InputAdapter.ViewHolder>(){
 
         holder.imageView.setImageURI(item.data_img)
         holder.title.text = item.data_title
-        holder.amount.text = item.data_amt.toString()
+        holder.amount.text = item.data_amt
         holder.location.text = item.data_location
         holder.type.text= item.data_type
         holder.desciption.text = item.data_description
