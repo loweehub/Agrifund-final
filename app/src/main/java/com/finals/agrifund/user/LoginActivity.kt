@@ -1,5 +1,6 @@
 package com.finals.agrifund.user
 
+import com.finals.agrifund.MainActivity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,10 +12,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-
-import com.finals.agrifund.MainActivity
 import com.finals.agrifund.R
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -149,11 +147,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            val intent = Intent(this, MainActivity::class.java).apply {
-                putExtra("USER_NAME", user.displayName)
-                putExtra("USER_EMAIL", user.email)
-                putExtra("USER_PHOTO", user.photoUrl?.toString())
-            }
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -165,4 +159,3 @@ class LoginActivity : AppCompatActivity() {
         private const val TAG = "LoginActivity"
     }
 }
-

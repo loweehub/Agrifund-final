@@ -56,6 +56,9 @@ dependencies {
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore.ktx)
 
+    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.google.code.gson:gson:2.8.9")
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -70,6 +73,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.firebase.auth)
     implementation(libs.play.services.auth)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
