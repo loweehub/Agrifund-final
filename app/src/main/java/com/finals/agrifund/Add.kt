@@ -1,5 +1,4 @@
 package com.finals.agrifund
-
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
@@ -7,22 +6,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import androidx.appcompat.widget.AppCompatAutoCompleteTextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Add : Fragment() {
 
     private lateinit var campaignList: MutableList<Data_campaigns>
-
     private lateinit var image: ImageView
-    private lateinit var imageUri: Uri // Declare imageUri here
+    private var imageUri: Uri? = null // Initialize as null
+    private lateinit var firestore: FirebaseFirestore
+
     companion object {
         const val IMG_REQ_CODE = 100
     }
@@ -37,12 +33,15 @@ class Add : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Initialize Firestore
+        firestore = FirebaseFirestore.getInstance()
+
         // Find your views here
         val types = listOf("Donation", "Investment")
         val autoComplete: AutoCompleteTextView? = view.findViewById(R.id.add_type)
         val submit: Button = view.findViewById(R.id.submit)
 
-        //Inputs for campaign details
+        // Inputs for campaign details
         image = view.findViewById(R.id.add_image)
         val amount: EditText = view.findViewById(R.id.add_amt)
         val title: EditText = view.findViewById(R.id.add_title)
@@ -72,26 +71,24 @@ class Add : Fragment() {
             val fullnameData = fullname.text.toString()
 
             val campaignData = Data_campaigns(
-                imageUri,
-                "Title: $titleData",
-                amountData.toLong(),
-                "Business location: $locationData",
-                "Type: $typeData",
-                "Description: $descriptionData",
-                "Fullname: $fullnameData"
+                imageUri ?: Uri.EMPTY, // Ensure non-null Uri
+                titleData,
+                amountData,
+                locationData,
+                typeData,
+                descriptionData,
+                fullnameData
             )
-            campaignList.add(campaignData)
+
+            // Save campaign data to Firestore
+            saveCampaignToFirestore(campaignData)
 
             // Select the Campaign Dashboard navigation item
             val navigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavBar)
             navigationView.menu.findItem(R.id.navigation_campaigns).isChecked = true
 
             // Display the Campaign_Dashboard fragment
-            val fragment = Campaign_Dashboard.newInstance(campaignList as ArrayList<Data_campaigns>)
-            val fragmentManager = requireActivity().supportFragmentManager
-            val fragmentTransaction = fragmentManager.beginTransaction()
-            fragmentTransaction.replace(R.id.host_main_fragment, fragment)
-            fragmentTransaction.commit()
+
         }
     }
 
@@ -105,9 +102,32 @@ class Add : Fragment() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == IMG_REQ_CODE && resultCode == RESULT_OK) {
             data?.data?.let { uri ->
-                imageUri = uri // Save the uri to a variable
+                imageUri = uri
                 image.setImageURI(uri)
             }
         }
     }
+
+    private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let { currentUser ->
+            // Create a new document with a generated ID
+            firestore.collection("campaigns")
+                .add(campaignData)
+                .addOnSuccessListener { documentReference ->
+                    Toast.makeText(
+                        requireContext(),
+                        "Campaign added successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(
+                        requireContext(),
+                        "Error adding campaign: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
+        }
 }
