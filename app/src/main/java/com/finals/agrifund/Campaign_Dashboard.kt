@@ -50,6 +50,7 @@
 package com.finals.agrifund
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -85,9 +86,11 @@ class Campaign_Dashboard : Fragment() {
                 val campaignList = mutableListOf<Data_campaigns>()
 
                 for (document in documents) {
-                    val imageUri = document.get("data_uri") as? Uri ?: Uri.EMPTY
+                    val imageUrl = document.getString("data_img") ?: ""
+                    val imageUri = Uri.parse(imageUrl)
+                    Log.d("Campaign_Dashboard", "Image URI: $imageUri") // Log the image URL
                     val title = document.getString("data_title") ?: ""
-                    val amount = document.getString("data_amnt") ?: ""
+                    val amount = document.getString("data_amt") ?: ""
                     val location = document.getString("data_location") ?: ""
                     val type = document.getString("data_type") ?: ""
                     val description = document.getString("data_description") ?: ""
@@ -103,6 +106,7 @@ class Campaign_Dashboard : Fragment() {
             }
             .addOnFailureListener { exception ->
                 // Handle errors
+                Log.e("Firestore Error", exception.message.toString())
             }
     }
 }
