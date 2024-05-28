@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Base Colors -->
     <color name="black">#FF000000</color>
-
     <color name="white">#FFFFFF</color>
-    <color name="tortilla">#9A7B4F</color>
-    <color name="kelly">#4CBB17</color>
-    <color name="light">#90EE90</color>
 
     <!-- Light Theme Colors -->
     <color name="light_primary">#FFFFFF</color> <!-- Example: White -->
+    <color name="light_primary_dark">#E0E0E0</color> <!-- Example: Light Gray -->
+    <color name="light_accent">#FF4081</color> <!-- Example: Pink -->
+    <color name="button_background_color">#28292E</color>
+    <color name="green">#23dc83</color>
+
 
     <!-- Dark Theme Colors -->
     <color name="dark_primary">#000000</color> <!-- Example: Black -->
+    <color name="dark_primary_dark">#212121</color> <!-- Example: Dark Gray -->
+    <color name="dark_accent">#2196F3</color> <!-- Example: Blue -->
+
+    <!-- Additional Colors -->
     <color name="blue">#459DE4</color>
     <color name="red">#FF0000</color>
-
-
+    <color name="tortilla">#9A7B4F</color>
+    <color name="kelly">#4CBB17</color>
+    <color name="light">#90EE90</color>
 </resources>

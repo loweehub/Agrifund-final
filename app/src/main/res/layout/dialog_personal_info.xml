@@ -3,29 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#28292E"
     android:padding="16dp">
 
     <TextView
         android:id="@+id/fullNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Full Name"
+        android:text="Full Name : "
+        android:textColor="@color/white"
         android:textSize="18sp"
+        android:layout_marginTop="5dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="Email :"
         android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/white"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/phoneTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Phone Number"
+        android:text="Phone Number :"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -33,7 +39,9 @@
         android:id="@+id/editButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit" />
+        android:text="Edit"
+        android:layout_marginTop="5dp"
+        style="@style/CustomButtonStyle"/>
 
     <EditText
         android:id="@+id/fullNameEditText"

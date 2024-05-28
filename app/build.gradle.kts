@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.firestore.ktx)
+    implementation ("com.google.android.material:material:1.4.0")
 
     //for payment
     implementation("com.squareup.picasso:picasso:2.71828")

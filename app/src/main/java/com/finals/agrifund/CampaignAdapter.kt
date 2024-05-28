@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class CampaignAdapter(private val campaignList: List<Data_campaigns>) : RecyclerView.Adapter<CampaignAdapter.ViewHolder>() {
+class CampaignAdapter(private var campaignList: List<Data_campaigns>) : RecyclerView.Adapter<CampaignAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.campaign_list_image)
@@ -43,4 +43,8 @@ class CampaignAdapter(private val campaignList: List<Data_campaigns>) : Recycler
 
 
     override fun getItemCount() = campaignList.size
+    fun updateList(newList: List<Data_campaigns>) {
+        this.campaignList = newList
+        notifyDataSetChanged()
+    }
 }

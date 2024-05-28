@@ -41,12 +41,23 @@
 
         </LinearLayout>
 
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
+            app:queryHint="Search here..."
+            android:iconifiedByDefault="false"
+            android:background="@drawable/searchview_bg"/>
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/campaignlist"
             android:layout_marginBottom="15dp"
+
           />
 
 <!--        <Button-->
