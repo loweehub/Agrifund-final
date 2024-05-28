@@ -73,12 +73,12 @@ class Add : Fragment() {
 
             val campaignData = Data_campaigns(
                 imageUri ?: Uri.EMPTY, // Ensure non-null Uri
-                titleData,
-                amountData,
-                locationData,
-                typeData,
-                descriptionData,
-                fullnameData
+                "Title: $titleData",
+                "Target Amount: ₱$amountData",
+                "Busines Location $locationData",
+                "Type: $typeData",
+                "Descreption: $descriptionData",
+                "Fullname: $fullnameData"
             )
 
             // Save campaign data to Firestore
@@ -109,28 +109,7 @@ class Add : Fragment() {
         }
     }
 
-//    private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
-//        val user = FirebaseAuth.getInstance().currentUser
-//        user?.let { currentUser ->
-//            // Create a new document with a generated ID
-//            firestore.collection("campaigns")
-//                .add(campaignData)
-//                .addOnSuccessListener { documentReference ->
-//                    Toast.makeText(
-//                        requireContext(),
-//                        "Campaign added successfully",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//                .addOnFailureListener { e ->
-//                    Toast.makeText(
-//                        requireContext(),
-//                        "Error adding campaign: ${e.message}",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                }
-//        }
-//        }
+
 private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
     val user = FirebaseAuth.getInstance().currentUser
     user?.let { currentUser ->

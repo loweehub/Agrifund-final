@@ -74,8 +74,11 @@ class Campaign_Dashboard : Fragment() {
 
         retrieveDataFromFirestore()
 
+
+
         return view
     }
+
 
     private fun retrieveDataFromFirestore() {
         val db = FirebaseFirestore.getInstance()

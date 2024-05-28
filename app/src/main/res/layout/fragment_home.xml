@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/total_balance"
-            android:text="0.00"
+            android:text="₱ 0.00"
             android:textSize="35dp"
             android:layout_marginLeft="15dp"
             android:layout_gravity="center_horizontal"
