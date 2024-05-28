@@ -4,16 +4,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Add"
-
     android:background="#18191E">
 
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="190dp"
-        android:id="@+id/bulb"
-        android:src="@drawable/bulb" />
+    <LinearLayout
+        android:id="@+id/addHeader"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:background="#23dc83">
 
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Add Campaigns"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:layout_marginStart="60dp"
+            android:layout_gravity="center"
+            android:shadowColor="#FF000000"
+            android:shadowDx="2"
+            android:shadowDy="5"
+            android:shadowRadius="10" />
+
+
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="130dp"
+        android:id="@+id/bulb"
+        android:src="@drawable/bulb"
+        android:layout_below="@+id/addHeader"/>
 
     <TextView
         android:id="@+id/headText"
@@ -24,7 +56,7 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_below="@+id/bulb"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/hmText"
@@ -36,6 +68,7 @@
         android:layout_marginEnd="30dp"
         android:textColor="@color/white"
         android:textStyle="italic" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -52,10 +85,11 @@
         android:layout_marginRight="30dp"
         android:id="@+id/add_amt"
         android:maxLines="1"/>
-    <EditText android:layout_width="match_parent"
+
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:id="@+id/add_title"
-
         android:layout_below="@+id/add_amt"
         android:hint="Campaign title *"
         android:background="@drawable/corner"
@@ -84,17 +118,15 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="15dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <RelativeLayout
         android:id="@+id/types"
         android:layout_below="@+id/add_Business_Location"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="30dp"
-        android:textStyle="italic"
         android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/corner"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu">
+        android:background="@drawable/corner">
         <AutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -104,8 +136,8 @@
             android:textColorHint="@color/kelly"
             android:layout_margin="5dp"
             android:textStyle="italic" />
+    </RelativeLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="80dp"
@@ -114,13 +146,13 @@
         android:background="@drawable/corner"
         android:layout_marginLeft="30dp"
         android:textStyle="italic"
-
         android:layout_marginRight="30dp"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/types"
         android:textColor="@color/white"
         android:textColorHint="@color/kelly"
         android:padding="6dp"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -144,11 +176,11 @@
         android:orientation="horizontal"
         android:layout_marginTop="15dp">
 
-        <ImageView android:layout_width="100dp"
+        <ImageView
+            android:layout_width="100dp"
             android:layout_height="40dp"
             android:id="@+id/add_image"
             android:layout_marginLeft="10dp"
-
             android:clickable="true"
             android:src="@drawable/image_holder"/>
         <TextView
@@ -157,12 +189,10 @@
             android:id="@+id/welcome_msg"
             android:text="Upload image here!"
             android:layout_gravity="center"
-
             android:textStyle="italic"
             android:textColor="@color/white"/>
-
-
     </LinearLayout>
+
     <Button
         android:id="@+id/submit"
         android:layout_width="150dp"
@@ -171,9 +201,7 @@
         android:layout_margin="10dp"
         android:textColor="@color/white"
         android:layout_below="@+id/imgLayout"
+        style="@style/CustomButtonStyle"
         android:background="@drawable/buttons"
         android:text="Submit"/>
-
-
-
 </RelativeLayout>
