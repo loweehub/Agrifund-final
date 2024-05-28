@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -108,26 +109,71 @@ class Add : Fragment() {
         }
     }
 
-    private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
-        val user = FirebaseAuth.getInstance().currentUser
-        user?.let { currentUser ->
-            // Create a new document with a generated ID
-            firestore.collection("campaigns")
-                .add(campaignData)
-                .addOnSuccessListener { documentReference ->
-                    Toast.makeText(
-                        requireContext(),
-                        "Campaign added successfully",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                .addOnFailureListener { e ->
-                    Toast.makeText(
-                        requireContext(),
-                        "Error adding campaign: ${e.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-        }
-        }
+//    private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
+//        val user = FirebaseAuth.getInstance().currentUser
+//        user?.let { currentUser ->
+//            // Create a new document with a generated ID
+//            firestore.collection("campaigns")
+//                .add(campaignData)
+//                .addOnSuccessListener { documentReference ->
+//                    Toast.makeText(
+//                        requireContext(),
+//                        "Campaign added successfully",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//                .addOnFailureListener { e ->
+//                    Toast.makeText(
+//                        requireContext(),
+//                        "Error adding campaign: ${e.message}",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                }
+//        }
+//        }
+private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
+    val user = FirebaseAuth.getInstance().currentUser
+    user?.let { currentUser ->
+        // Create a new document with a generated ID
+        firestore.collection("campaigns")
+            .add(campaignData)
+            .addOnSuccessListener { documentReference ->
+                // Retrieve the document reference of the newly added campaign
+                val campaignId = documentReference.id
+                // Retrieve the document to get the image URL
+                firestore.collection("campaigns").document(campaignId)
+                    .get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        val imageUrl = documentSnapshot.getString("imageUrl")
+                        // Display the image in ImageView using Glide
+                        imageUrl?.let {
+                            Glide.with(requireContext())
+                                .load(it)
+                                .into(image)
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        Toast.makeText(
+                            requireContext(),
+                            "Error fetching image URL: ${e.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                Toast.makeText(
+                    requireContext(),
+                    "Campaign added successfully",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(
+                    requireContext(),
+                    "Error adding campaign: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
+}
+
 }

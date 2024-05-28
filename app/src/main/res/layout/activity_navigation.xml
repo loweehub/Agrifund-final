@@ -14,7 +14,8 @@
         android:layout_height="60dp"
         android:id="@+id/botnavbar"
         android:layout_gravity="bottom"
-        android:background="@drawable/navbar"
+        android:background="@color/kelly"
+
         app:menu="@menu/bottom_nav"/>
        
 

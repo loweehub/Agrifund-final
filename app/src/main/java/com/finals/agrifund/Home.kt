@@ -92,11 +92,13 @@ class Home : Fragment() {
         )
 
         overTitle = arrayOf(
-            "Farming is a profesion of hope",
-            "Trees are poems that the earth writes" +
-                    "    upon the sky",
+            "Farming is a profesion of hope" +
+                    "Farming is one of the most beneficial and essential activities on Earth. It sustains life by providing food, supports economies, and nurtures the land. Beyond just growing crops, farming fosters a connection with nature, promotes sustainability, and cultivates communities. It is a noble pursuit that contributes profoundly to the well-being of humanity and the health of our planet.",
+
             "Fisheries and aquaculture are vital " +
-                    "   for food and livelihoods."
+                    " Fishing is like a puzzle, where the river or ocean is the board, and the fish are the pieces that need to be carefully and patiently pieced together. Just as a puzzle requires strategy, patience, and a keen eye, so does fishing. It's not just about dropping a line in the water and hoping for the best - it's about understanding the environment, the behavior of the fish, and the right techniques to use. In this way, fishing is a metaphor for the larger world of fisheries, where the sustainable management of our oceans and rivers requires a deep understanding of the complex systems at play, and the ability to adapt and innovate in the face of changing conditions.",
+            "Trees are poems that the earth writes" +
+                    "    Just as a fisherman carefully selects the right bait, rod, and reel to catch the perfect fish, trees are the ultimate \"catch\" for our planet. They provide the perfect blend of oxygen, shade, and sustenance for all living creatures.",
 
         )
 

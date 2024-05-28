@@ -13,21 +13,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AgriFund"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
-
-
         <activity
-            android:name=".user.RegisterActivity"
+            android:name=".SecondScreen"
             android:exported="false" />
-
         <activity
-            android:name=".Notification"
-            android:exported="false" />
-
-
-        <activity
-            android:name=".user.LoginActivity"
+            android:name=".FirstScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,14 +28,24 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".user.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Notification"
+            android:exported="false" />
+        <activity
+            android:name=".user.LoginActivity"
+            android:exported="false">
+
+        </activity>
+        <activity
             android:name=".MainActivity"
             android:exported="false">
 
         </activity>
         <activity
             android:name=".Profile"
-            android:exported="false"/>
-
+            android:exported="false" />
     </application>
 
 </manifest>

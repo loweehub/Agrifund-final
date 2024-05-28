@@ -50,10 +50,10 @@
 package com.finals.agrifund
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -87,8 +87,7 @@ class Campaign_Dashboard : Fragment() {
 
                 for (document in documents) {
                     val imageUrl = document.getString("data_img") ?: ""
-                    val imageUri = Uri.parse(imageUrl)
-                    Log.d("Campaign_Dashboard", "Image URI: $imageUri") // Log the image URL
+                    val imageUri = if (imageUrl.isNotEmpty()) Uri.parse(imageUrl) else Uri.EMPTY
                     val title = document.getString("data_title") ?: ""
                     val amount = document.getString("data_amt") ?: ""
                     val location = document.getString("data_location") ?: ""
@@ -101,13 +100,14 @@ class Campaign_Dashboard : Fragment() {
                     campaignList.add(campaignData)
                 }
 
+
                 val adapter = CampaignAdapter(campaignList)
                 campaignRecyclerView.adapter = adapter
             }
             .addOnFailureListener { exception ->
                 // Handle errors
-                Log.e("Firestore Error", exception.message.toString())
             }
+
+
     }
 }
-
