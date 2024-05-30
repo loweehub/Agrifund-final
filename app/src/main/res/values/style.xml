@@ -1,9 +1,4 @@
-
-<?xml version="1.0" encoding="utf-8"?>
-<!-- styles.xml -->
-
-<!-- styles.xml -->
-
+<?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <!-- Base application theme -->
 
@@ -34,8 +29,6 @@
     </style>
 
     <!-- Style for social media image views -->
-
-
 
     <!-- Add any other button properties you want to customize -->
 

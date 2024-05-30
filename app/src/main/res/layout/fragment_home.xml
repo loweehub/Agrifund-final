@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:background="#F5FEFD"
+    android:background="#18191E"
     tools:context=".Home">
 
     <LinearLayout android:layout_width="match_parent"
@@ -15,7 +15,7 @@
         <LinearLayout android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="#355E3B">
+            android:background="#23dc83">
 
             <ImageView android:layout_width="80dp"
                 android:layout_height="80dp"
@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/welcome_msg"
             android:text="Welcome!"
+            android:textColor="@color/white"
             android:layout_marginLeft="15dp"
             />
 
@@ -64,6 +65,7 @@
             android:id="@+id/total_balance"
             android:text="₱ 0.00"
             android:textSize="35dp"
+            android:textColor="@color/white"
             android:layout_marginLeft="15dp"
             android:layout_gravity="center_horizontal"
             />
@@ -72,6 +74,7 @@
             android:layout_height="wrap_content"
             android:text="Total return of investment"
             android:layout_marginLeft="15dp"
+            android:textColor="@color/white"
             android:layout_gravity="center_horizontal"
             />
         <View
@@ -91,15 +94,16 @@
             android:orientation="horizontal"
             android:layout_marginTop="20dp">
 
-            <TextView android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Items worth considering for investment."
-                android:textSize="15dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:fontFamily="sans-serif"
+            <TextView
+                android:layout_width="277dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="15dp"
-                android:layout_gravity="center_horizontal"/>
+                android:fontFamily="sans-serif"
+                android:text="Items worth considering for investment."
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView

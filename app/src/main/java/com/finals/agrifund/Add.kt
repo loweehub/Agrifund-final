@@ -84,6 +84,14 @@ class Add : Fragment() {
             // Save campaign data to Firestore
             saveCampaignToFirestore(campaignData)
 
+            //clearing the textboxes
+            amount.text.clear()
+            title.text.clear()
+            location.text.clear()
+            type.text.clear()
+            description.text.clear()
+            fullname.text.clear()
+
             // Select the Campaign Dashboard navigation item
             val navigationView = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavBar)
             navigationView.menu.findItem(R.id.navigation_campaigns).isChecked = true

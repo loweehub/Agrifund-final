@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#18191E">
 
     <LinearLayout android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="#cefad0">
+                android:background="#28292E">
 
                 <ImageView
                     android:id="@+id/campaign_list_image"
@@ -44,45 +45,50 @@
                           android:layout_height="wrap_content"
                           android:text="DETAILS"
                           android:textStyle="bold"
-                          android:layout_marginLeft="10dp"/>
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
 
                       <TextView
                           android:id="@+id/display_title"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="TITLE: "
-                          android:textColor="@color/black"
-                          android:layout_marginLeft="10dp"/>
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
+
                       <TextView
                           android:id="@+id/display_target_amt"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
-                          android:textColor="@color/black"
                           android:text="Target Amount: "
-                          android:layout_marginLeft="10dp"/>
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
                       <TextView
                           android:id="@+id/display_location"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Business Location: "
-                          android:textColor="@color/black"
-                          android:layout_marginLeft="10dp"/>
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
+
 
                       <TextView
                           android:id="@+id/display_type"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Type: "
-                          android:textColor="@color/black"
-                          android:layout_marginLeft="10dp"/>
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
+
 
                       <TextView
                           android:id="@+id/display_description"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Descripton: "
-                          android:textColor="@color/black"
-                          android:layout_marginLeft="10dp"/>
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
+
 
 
                   </LinearLayout>
@@ -96,33 +102,15 @@
                           android:layout_height="wrap_content"
                           android:text="AUTHOR"
                           android:textStyle="bold"
-                          android:layout_marginLeft="10dp"/>
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
                       <TextView
                           android:id="@+id/display_fullname"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:text="Fullname: "
-                          android:textColor="@color/black"
-                          android:layout_marginLeft="10dp"/>
-
-                      <TextView
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="RECIPIENT"
-                          android:textStyle="bold"
-                          android:layout_marginTop="5dp"
-                          android:layout_marginLeft="10dp"/>
-                      <TextView
-                          android:id="@+id/display_recipient"
-                          android:layout_width="wrap_content"
-                          android:layout_height="wrap_content"
-                          android:text="Acc number: "
-                          android:textColor="@color/black"
-                          android:layout_marginLeft="10dp"/>
-
-
-
-
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
 
                   </LinearLayout >
 
@@ -142,17 +130,8 @@
                         android:background="@drawable/btns"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="Donate"/>
-                    <Button
-                        android:id="@+id/Invest"
-                        android:layout_width="100dp"
-                        android:layout_height="35dp"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/btns"
-                        android:text="Invest"/>
+                        android:text="Contribute"/>
+
                 </LinearLayout>
 
 

@@ -15,9 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-
         <activity
-            android:name=".Payment"
+            android:name=".Host_Layout"
+            android:exported="false" />
+        <activity
+            android:name=".Donation"
             android:exported="false" />
         <activity
             android:name=".SecondScreen"
@@ -26,7 +28,6 @@
             android:name=".Notification"
             android:exported="false" />
         <activity
-
             android:name=".FirstScreen"
             android:exported="true">
             <intent-filter>
@@ -38,15 +39,12 @@
         <activity
             android:name=".user.RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".user.LoginActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Profile"
             android:exported="false" />

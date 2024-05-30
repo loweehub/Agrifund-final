@@ -1,5 +1,7 @@
+// Campaign_Dashboard.kt
 package com.finals.agrifund
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,15 +11,14 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.widget.SearchView
-import com.finals.agrifund.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Locale
 
-class Campaign_Dashboard : Fragment() {
+class Campaign_Dashboard : Fragment(), CampaignAdapter.OnDonateButtonClickListener {
 
     private lateinit var campaignRecyclerView: RecyclerView
     private lateinit var searchView: SearchView
- lateinit var adapter: CampaignAdapter
+    private lateinit var adapter: CampaignAdapter
     private var campaignList = mutableListOf<Data_campaigns>()
     private var filteredCampaignList = mutableListOf<Data_campaigns>()
 
@@ -44,13 +45,12 @@ class Campaign_Dashboard : Fragment() {
 
         retrieveDataFromFirestore()
 
-        // Initialize adapter here
-        adapter = CampaignAdapter(filteredCampaignList)
+        // Initialize adapter with listener
+        adapter = CampaignAdapter(filteredCampaignList, this)
         campaignRecyclerView.adapter = adapter
 
         return view
     }
-
 
     private fun retrieveDataFromFirestore() {
         val db = FirebaseFirestore.getInstance()
@@ -69,14 +69,14 @@ class Campaign_Dashboard : Fragment() {
                     val description = document.getString("data_description") ?: ""
                     val fullname = document.getString("data_fullname") ?: ""
 
-                    val campaignData = Data_campaigns(imageUri, title,
-                        amount, location, type, description, fullname)
+                    val campaignData = Data_campaigns(
+                        imageUri, title, amount, location, type, description, fullname
+                    )
                     campaignList.add(campaignData)
                 }
 
                 filteredCampaignList.addAll(campaignList)
-                adapter = CampaignAdapter(filteredCampaignList)
-                campaignRecyclerView.adapter = adapter
+                adapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
                 // Handle errors
@@ -91,11 +91,20 @@ class Campaign_Dashboard : Fragment() {
             val lowerCaseQuery = query.toLowerCase(Locale.ROOT)
             for (campaign in campaignList) {
                 if (campaign.data_title.toLowerCase(Locale.ROOT).contains(lowerCaseQuery) ||
-                    campaign.data_description.toLowerCase(Locale.ROOT).contains(lowerCaseQuery)) {
+                    campaign.data_description.toLowerCase(Locale.ROOT).contains(lowerCaseQuery)
+                ) {
                     filteredCampaignList.add(campaign)
                 }
             }
         }
         adapter.notifyDataSetChanged()
+    }
+
+    override fun onDonateButtonClick(campaign: Data_campaigns) {
+        val intent = Intent(requireActivity(), Donation::class.java)
+        intent.putExtra("donation_title", campaign.data_title)
+        intent.putExtra("donation_description", campaign.data_description)
+        // Pass additional data if needed
+        startActivity(intent)
     }
 }
