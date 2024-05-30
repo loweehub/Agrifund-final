@@ -70,6 +70,7 @@ class Add : Fragment() {
             val typeData = type.text.toString()
             val descriptionData = description.text.toString()
             val fullnameData = fullname.text.toString()
+            val campaignId = firestore.collection("campaigns").document().id
 
             val campaignData = Data_campaigns(
                 imageUri ?: Uri.EMPTY, // Ensure non-null Uri
@@ -78,7 +79,10 @@ class Add : Fragment() {
                 "Busines Location $locationData",
                 "Type: $typeData",
                 "Descreption: $descriptionData",
-                "Fullname: $fullnameData"
+                "Fullname: $fullnameData",
+                0,
+                campaignId
+
             )
 
             // Save campaign data to Firestore
@@ -118,49 +122,49 @@ class Add : Fragment() {
     }
 
 
-private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
-    val user = FirebaseAuth.getInstance().currentUser
-    user?.let { currentUser ->
-        // Create a new document with a generated ID
-        firestore.collection("campaigns")
-            .add(campaignData)
-            .addOnSuccessListener { documentReference ->
-                // Retrieve the document reference of the newly added campaign
-                val campaignId = documentReference.id
-                // Retrieve the document to get the image URL
-                firestore.collection("campaigns").document(campaignId)
-                    .get()
-                    .addOnSuccessListener { documentSnapshot ->
-                        val imageUrl = documentSnapshot.getString("imageUrl")
-                        // Display the image in ImageView using Glide
-                        imageUrl?.let {
-                            Glide.with(requireContext())
-                                .load(it)
-                                .into(image)
-                        }
-                    }
-                    .addOnFailureListener { e ->
-                        Toast.makeText(
-                            requireContext(),
-                            "Error fetching image URL: ${e.message}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
+    private fun saveCampaignToFirestore(campaignData: Data_campaigns) {
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let { currentUser ->
+            // Create a new document with a generated ID
+            val campaignId = firestore.collection("campaigns").document().id
+            val campaignRef = firestore.collection("campaigns").document(campaignId)
 
-                Toast.makeText(
-                    requireContext(),
-                    "Campaign added successfully",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(
-                    requireContext(),
-                    "Error adding campaign: ${e.message}",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            campaignRef.set(campaignData)
+                .addOnSuccessListener {
+                    // Optionally, retrieve the document to get the image URL
+                    campaignRef.get()
+                        .addOnSuccessListener { documentSnapshot ->
+                            val imageUrl = documentSnapshot.getString("imageUrl")
+                            // Display the image in ImageView using Glide
+                            imageUrl?.let {
+                                Glide.with(requireContext())
+                                    .load(it)
+                                    .into(image)
+                            }
+                        }
+                        .addOnFailureListener { e ->
+                            Toast.makeText(
+                                requireContext(),
+                                "Error fetching image URL: ${e.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                    Toast.makeText(
+                        requireContext(),
+                        "Campaign added successfully",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(
+                        requireContext(),
+                        "Error adding campaign: ${e.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
     }
-}
+
 
 }

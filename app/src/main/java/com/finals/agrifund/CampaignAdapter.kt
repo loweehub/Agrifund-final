@@ -29,6 +29,8 @@ class CampaignAdapter(
         val descriptionTextView: TextView = itemView.findViewById(R.id.display_description)
         val fullnameTextView: TextView = itemView.findViewById(R.id.display_fullname)
         val donateButton: Button = itemView.findViewById(R.id.Donate)
+        //new
+        val accumulatedTextView: TextView = itemView.findViewById(R.id.display_accumulated)
 
         fun bind(campaign: Data_campaigns) {
             titleTextView.text = campaign.data_title
@@ -37,6 +39,7 @@ class CampaignAdapter(
             typeTextView.text = campaign.data_type
             descriptionTextView.text = campaign.data_description
             fullnameTextView.text = campaign.data_fullname
+            accumulatedTextView.text = campaign.data_accumulated.toString()
 
             Glide.with(itemView.context)
                 .load(campaign.data_img)

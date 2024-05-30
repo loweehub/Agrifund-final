@@ -68,7 +68,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:hint="Should be minimum ₱5,000"
+        android:hint="Target amount"
         android:background="@drawable/corner"
         android:layout_marginLeft="30dp"
         android:textStyle="italic"

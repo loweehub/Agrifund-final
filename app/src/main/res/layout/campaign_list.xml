@@ -112,6 +112,23 @@
                           android:layout_marginLeft="10dp"
                           android:textColor="@color/white"/>
 
+                      <TextView
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="ACCUMULATED"
+                          android:layout_marginTop="5dp"
+                          android:textStyle="bold"
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
+
+                      <TextView
+                          android:id="@+id/display_accumulated"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="₱"
+                          android:layout_marginLeft="10dp"
+                          android:textColor="@color/white"/>
+
                   </LinearLayout >
 
               </LinearLayout>

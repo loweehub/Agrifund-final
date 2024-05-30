@@ -68,9 +68,11 @@ class Campaign_Dashboard : Fragment(), CampaignAdapter.OnDonateButtonClickListen
                     val type = document.getString("data_type") ?: ""
                     val description = document.getString("data_description") ?: ""
                     val fullname = document.getString("data_fullname") ?: ""
+                    val accumulated = document.getLong("data_accumulated")?: 0
+                    val documentId = document.id // Get the document ID
 
                     val campaignData = Data_campaigns(
-                        imageUri, title, amount, location, type, description, fullname
+                        imageUri, title, amount, location, type, description, fullname, accumulated, documentId
                     )
                     campaignList.add(campaignData)
                 }
@@ -83,6 +85,7 @@ class Campaign_Dashboard : Fragment(), CampaignAdapter.OnDonateButtonClickListen
             }
     }
 
+    //For searchbar
     private fun filterCampaigns(query: String?) {
         filteredCampaignList.clear()
         if (query.isNullOrEmpty()) {
@@ -100,10 +103,12 @@ class Campaign_Dashboard : Fragment(), CampaignAdapter.OnDonateButtonClickListen
         adapter.notifyDataSetChanged()
     }
 
+    //for payment layout
     override fun onDonateButtonClick(campaign: Data_campaigns) {
         val intent = Intent(requireActivity(), Donation::class.java)
         intent.putExtra("donation_title", campaign.data_title)
         intent.putExtra("donation_description", campaign.data_description)
+        intent.putExtra("campaign_id", campaign.documentId) // Pass the document ID
         // Pass additional data if needed
         startActivity(intent)
     }

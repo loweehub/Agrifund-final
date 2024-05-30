@@ -72,7 +72,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -179,13 +179,15 @@
                   android:layout_marginTop="50dp"
                   android:orientation="horizontal">
 
-        <EditText android:layout_width="150dp"
-                  android:layout_height="50dp"
-                  android:layout_marginLeft="30dp"
-                  android:textSize="18dp"
-                  android:inputType="number"
-                  android:background="@color/white"/>
 
+        <EditText
+            android:id="@+id/accumulated_input"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="30dp"
+            android:background="@color/white"
+            android:inputType="number"
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -221,7 +223,7 @@
         android:id="@+id/pay_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/buttons"
         style="@style/CustomButtonStyle"
         android:text="   Pay   "
