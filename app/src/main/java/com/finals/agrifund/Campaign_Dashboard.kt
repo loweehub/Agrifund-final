@@ -112,4 +112,22 @@ class Campaign_Dashboard : Fragment(), CampaignAdapter.OnDonateButtonClickListen
         // Pass additional data if needed
         startActivity(intent)
     }
+
+
+    //For delete fuction
+    override fun onDeleteButtonClick(campaign: Data_campaigns) {
+        val db = FirebaseFirestore.getInstance()
+        val campaignDocument = db.collection("campaigns").document(campaign.documentId)
+
+        campaignDocument.delete()
+            .addOnSuccessListener {
+                campaignList.remove(campaign)
+                filteredCampaignList.remove(campaign)
+                adapter.notifyDataSetChanged()
+            }
+            .addOnFailureListener { exception ->
+                // Handle errors
+            }
+    }
+
 }

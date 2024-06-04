@@ -18,7 +18,9 @@ class CampaignAdapter(
 
     interface OnDonateButtonClickListener {
         fun onDonateButtonClick(campaign: Data_campaigns)
+        fun onDeleteButtonClick(campaign: Data_campaigns)
     }
+
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.campaign_list_image)
@@ -29,6 +31,7 @@ class CampaignAdapter(
         val descriptionTextView: TextView = itemView.findViewById(R.id.display_description)
         val fullnameTextView: TextView = itemView.findViewById(R.id.display_fullname)
         val donateButton: Button = itemView.findViewById(R.id.Donate)
+        val deleteButton: Button = itemView.findViewById(R.id.Delete)
         //new
         val accumulatedTextView: TextView = itemView.findViewById(R.id.display_accumulated)
 
@@ -47,6 +50,10 @@ class CampaignAdapter(
 
             donateButton.setOnClickListener {
                 listener.onDonateButtonClick(campaign)
+            }
+
+            deleteButton.setOnClickListener {
+                listener.onDeleteButtonClick(campaign) // Set click listener for delete button
             }
         }
     }
